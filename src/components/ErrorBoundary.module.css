@@ -1,0 +1,38 @@
+.fallback {
+  padding: 16px;
+  margin: 8px 0;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-error);
+  border-radius: var(--radius-md);
+  max-width: 85%;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-error);
+  margin-bottom: 4px;
+}
+
+.message {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.retry {
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-raised);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.retry:hover {
+  background: var(--color-bg-hover);
+}

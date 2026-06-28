@@ -1,0 +1,150 @@
+.terminalPanel {
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+  min-height: 120px;
+  max-height: 50vh;
+  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--glass-border);
+  background: var(--color-bg-deep);
+  background: var(--glass-bg-deep);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  resize: vertical;
+  overflow: hidden;
+}
+.terminalPanelHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 10px;
+  background: var(--color-bg-surface);
+  background: var(--glass-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--frost-border-strong);
+  flex-shrink: 0;
+  user-select: none;
+}
+.terminalPanelTitle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.terminalPanelCwd {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-left: 4px;
+}
+.terminalPanelActions {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
+.terminalPanelBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.terminalPanelBtn:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+.terminalPanelOutput {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 12px;
+  line-height: 1.5;
+}
+.terminalPanelWelcome {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.terminalPanelLine {
+  display: flex;
+  align-items: flex-start;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.terminalPanelLine--input {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+.terminalPanelLine--output {
+  color: var(--color-text-secondary);
+}
+.terminalPanelLine--error {
+  color: var(--color-error);
+}
+.terminalPanelPrompt {
+  color: var(--color-brand);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.terminalPanelText {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.terminalPanelHiddenInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+.terminalPanelLine--active {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+.terminalPanelActiveText {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.terminalPanelCursor {
+  display: inline-block;
+}
+.terminalPanelCursor::after {
+  content: '▌';
+  color: var(--color-brand);
+  animation: terminal-blink 1s step-end infinite;
+}
+.terminalPanelBlurred .terminalPanelCursor::after {
+  animation: none;
+  opacity: 0.4;
+}
+.terminalPanel::-webkit-scrollbar {
+  width: 6px;
+}
+.terminalPanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.terminalPanel::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+.terminalPanelOutput::-webkit-scrollbar {
+  width: 6px;
+}
+.terminalPanelOutput::-webkit-scrollbar-track {
+  background: transparent;
+}
+.terminalPanelOutput::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}

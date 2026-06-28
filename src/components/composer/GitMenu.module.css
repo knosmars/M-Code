@@ -1,0 +1,8 @@
+.popupGit {
+  min-width: 180px;
+}
+
+.popupStatusDot--loading {
+  background: var(--color-accent);
+  animation: composer__popup-status-dot-pulse 1.2s ease-in-out infinite;
+}

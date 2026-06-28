@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+src-tauri/target/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tauri
+.svelte-kit/
+
+.meyatu/
+
+# AI tool runtime state (never commit)
+.omo/
+.opencode/state/
+
+# Visual brainstorm companion
+.superpowers/
+
+# Playwright
+/test-results/
+/playwright-report/
+/.playwright/

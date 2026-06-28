@@ -1,0 +1,364 @@
+/* ===== MessageBubble — Professional Chat UI =====
+   Design language synthesized from Cursor / Windsurf / Claude:
+   - Messages are typography-first, no heavy background boxes
+   - Assistant: clean prose, generous whitespace, subtle role indicator
+   - User: compact right-aligned pill, warm but minimal
+   - Color used sparingly — only for interactive elements
+   ==================================================== */
+
+/* ---- Message wrapper ---- */
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+  animation: messageAppear var(--transition-base) ease-out;
+}
+
+/* ---- Layout anchors ---- */
+.messageUser {
+  align-self: flex-end;
+  align-items: flex-end;
+  max-width: 75%;
+}
+
+.messageAssistant {
+  align-self: stretch;
+  max-width: 100%;
+}
+
+.messageSystem {
+  align-self: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+/* ---- Role label (subtle, professional) ---- */
+.roleLabel {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  font-family: var(--font-sans);
+}
+
+/* ---- Body — shared typography ---- */
+.body {
+  word-break: break-word;
+}
+
+.messageUser .body {
+  padding: 10px 16px;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  background: var(--color-bg-user);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.messageAssistant .body {
+  font-family: var(--font-prose);
+  font-size: var(--font-size-prose);
+  font-weight: var(--font-prose-weight, 300);
+  line-height: var(--line-height-prose);
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--color-text-primary);
+}
+
+.messageSystem .body {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  padding: 4px 8px;
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+/* ---- Timestamp ---- */
+.timestamp {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  padding: 0 4px;
+  font-family: var(--font-sans);
+}
+
+.timestampInline {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  margin-left: auto;
+  font-family: var(--font-sans);
+}
+
+/* ---- Assistant message content area ---- */
+.messageAssistant {
+  display: flex;
+  gap: 12px;
+  align-self: stretch;
+  max-width: 100%;
+  margin: 16px 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.text {
+  font-family: var(--font-prose);
+  font-size: var(--font-size-prose);
+  font-weight: var(--font-prose-weight, 300);
+  line-height: var(--line-height-prose);
+  color: var(--color-text-primary);
+}
+
+.messageAssistant .content {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* ---- Markdown Typography — clean, professional ---- */
+.text :global(.md-content) {}
+
+.text h1,.text h2,.text h3,.text h4,.text h5,.text h6 {
+  margin: 1.25em 0 .5em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+.text h1{font-size:1.5rem}
+.text h2{font-size:1.25rem}
+.text h3{font-size:1.1rem}
+.text h4,.text h5,.text h6{font-size:var(--font-size-prose)}
+.text h1:first-child,.text h2:first-child,.text h3:first-child,.text h4:first-child{margin-top:0}
+
+.text p{margin:.6em 0;line-height:var(--line-height-prose)}
+.text p:first-child{margin-top:0}
+.text p:last-child{margin-bottom:0}
+
+.text strong{font-weight:600;color:var(--color-text-primary)}
+.text em{font-style:italic}
+
+.text a{color:var(--color-accent);text-decoration:underline;text-underline-offset:2px}
+.text a:hover{color:var(--color-link)}
+
+.text ul,.text ol{margin:.5em 0;padding-left:1.5em}
+.text li{margin:.25em 0}
+.text li>p{margin:0}
+
+.text li:global(.task-list-item){list-style:none;margin-left:-1.5em}
+.text li:global(.task-list-item) input[type="checkbox"]{margin-right:.5em;accent-color:var(--color-accent)}
+
+.text blockquote {
+  margin: 1em 0;
+  padding: 10px 16px;
+  border-left: 3px solid var(--color-cyan);
+  color: var(--color-text-secondary);
+  background: var(--color-cyan-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+}
+.text blockquote p{margin:.25em 0}
+
+.text code {
+  font-family: var(--font-mono);
+  font-size: .875em;
+  padding: 2px 6px;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-primary);
+}
+
+.text hr{margin:1em 0;border:none;border-top:1px solid var(--color-border)}
+
+/* ---- Tables — polished data display ---- */
+.text table {
+  width: 100%;
+  margin: 1em 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.text thead{background:var(--color-bg-surface)}
+.text th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+.text td {
+  padding: 8px 14px;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  border-bottom: 1px solid var(--color-border-light);
+}
+.text tr:last-child td{border-bottom:none}
+.text tr:nth-child(even) td{background:var(--color-bg-surface)}
+.text del{color:var(--color-text-muted)}
+
+/* ---- Actions (copy/retry buttons) ---- */
+.actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.message:hover .actions,
+.message:focus-within .actions{opacity:1}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all .15s;
+}
+.actionBtn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+  border-color: var(--color-border);
+}
+
+/* ---- Token footer ---- */
+.tokenFooter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---- User bubble ---- */
+.messageUser {
+  align-self: flex-end;
+  align-items: flex-end;
+  max-width: 75%;
+  margin: 8px 0;
+}
+
+.bubble {
+  padding: 10px 16px;
+  background: var(--color-bg-user);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---- Tool activity — compact, minimal color ---- */
+.toolActivity {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.toolCallLine{display:flex;flex-direction:column}
+
+.toolCallLineBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  padding: 2px 0;
+  color: var(--color-cyan);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  text-align: left;
+  width: 100%;
+}
+.toolCallLineBtn:hover{opacity:.8}
+
+.toolCallLineLabel{font-weight:500;white-space:nowrap;font-family:var(--font-sans)}
+
+.toolCallLinePreview {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.toolCallLineChevron {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+  font-size: 14px;
+  color: var(--color-cyan);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.toolCallLineChevron--open{transform:rotate(90deg)}
+
+.toolCallLineArgs {
+  margin: 4px 0 2px 19px;
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-left: 2px solid var(--color-cyan);
+  border-radius: var(--radius-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 200px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+/* ---- Images ---- */
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.image {
+  max-width: 300px;
+  max-height: 240px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.image:hover{transform:scale(1.02);box-shadow:var(--shadow-md)}

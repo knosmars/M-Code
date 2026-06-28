@@ -1,0 +1,33 @@
+Meyatu Code Desktop Client
+Copyright (c) 2026 MEYATU LLC / 长沙梅亚图智能科技有限公司
+Official website: https://meyatu.net · https://meyatu.cn
+
+"Meyatu" and "梅亚图" are trademarks of MEYATU LLC. The Apache-2.0 license
+covers the source code; it does not grant rights to use these names or
+logos (Apache-2.0 Section 6).
+
+This product is licensed under the Apache License, Version 2.0 (the
+"License"); you may not use this software except in compliance with the
+License. A copy of the License is in the LICENSE file at the root of this
+repository, or at http://www.apache.org/licenses/LICENSE-2.0.
+
+================================================================================
+Third-party bundled assets
+================================================================================
+
+Fonts — licensed under the SIL Open Font License, Version 1.1 (OFL-1.1):
+
+  Nunito
+    Copyright 2014 The Nunito Project Authors
+    https://github.com/googlefonts/nunito
+    License: src/assets/fonts/Nunito-OFL.txt
+
+  Resource Han Rounded
+    Copyright 2018–2022 Cyano Hao; portions Copyright 2014–2021 Adobe,
+    with Reserved Font Name "Source".
+    https://github.com/CyanoHao/Resource-Han-Rounded
+    License: src/assets/fonts/ResourceHanRounded-OFL.txt
+
+Third-party Rust and npm dependencies are distributed under their own
+permissive licenses (MIT / Apache-2.0 / BSD). Run `cargo license` and
+`npx license-checker` to regenerate a full dependency license inventory.

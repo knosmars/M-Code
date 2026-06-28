@@ -1,0 +1,45 @@
+[package]
+name = "meyatu-code"
+version = "0.1.0"
+description = "Desktop AI coding assistant powered by Tauri 2"
+authors = ["MEYATU LLC (https://meyatu.net)"]
+license = "Apache-2.0"
+repository = "https://github.com/knosmars/M-Code"
+edition = "2021"
+rust-version = "1.77.2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "meyatu_code_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.2" }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+walkdir = "2"
+log = "0.4"
+tauri = { version = "2.11.2" }
+tauri-plugin-log = "2"
+reqwest = { version = "0.12", default-features = false, features = ["stream", "json", "rustls-tls"] }
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+keyring = { version = "3", features = ["apple-native", "windows-native"] }
+tauri-plugin-shell = "2"
+url = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+webbrowser = "1"
+regex = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+similar = "2"
+chrono = { version = "0.4", features = ["serde"] }
+dirs = "5"
+tauri-plugin-dialog = "2"
+# Web scraping: permissive (MIT) stack — reqwest fetch + htmd conversion.
+# Single-fetch + same-domain BFS; JS-heavy SPA pages degrade to raw HTML.
+# (html2md was GPL-3.0; htmd is MIT — keep this permissive.)
+htmd = "0.1"

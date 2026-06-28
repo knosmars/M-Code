@@ -1,0 +1,195 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  # ── PR & push to main: lint ──────────────────────────────────────────
+  lint:
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: "npm" }
+
+      - uses: dtolnay/rust-toolchain@stable
+        with: { components: "clippy, rustfmt" }
+
+      - uses: Swatinem/rust-cache@v2
+        with: { workspaces: "src-tauri" }
+
+      - name: Install system deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libwebkit2gtk-4.1-dev libgtk-3-dev libappindicator3-dev librsvg2-dev patchelf libsoup-3.0-dev libjavascriptcoregtk-4.1-dev
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: TypeScript type-check
+        run: npx tsc -b --noEmit
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Rust fmt
+        run: cargo fmt --check
+        working-directory: src-tauri
+
+      - name: Clippy
+        run: cargo clippy --all-targets -- -D warnings
+        working-directory: src-tauri
+
+  # ── PR & push to main: unit tests ────────────────────────────────────
+  unit-test:
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: "npm" }
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with: { workspaces: "src-tauri" }
+
+      - name: Install system deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libwebkit2gtk-4.1-dev libgtk-3-dev libappindicator3-dev librsvg2-dev patchelf libsoup-3.0-dev libjavascriptcoregtk-4.1-dev
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Rust tests
+        run: cargo test --all-targets
+        working-directory: src-tauri
+
+      - name: TypeScript tests (vitest)
+        run: npx vitest run
+
+  # ── PR & push to main: e2e (Playwright + mockIPC) ───────────────────
+  e2e:
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: "npm" }
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # ── Push to main: integration tests ────────────────────────────────
+  integration:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [lint, unit-test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run smoke tests (skips without API key)
+        run: |
+          if [[ -n "${MEYATU_API_KEY:-}" ]]; then
+            bash smoke-test.sh
+          else
+            echo "[SKIP] MEYATU_API_KEY secret not set — integration tests skipped"
+          fi
+        env:
+          MEYATU_API_KEY: ${{ secrets.MEYATU_API_KEY }}
+
+  # ── Push to main: build ────────────────────────────────────────────
+  build:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [lint, unit-test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: "npm" }
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with: { workspaces: "src-tauri" }
+
+      - name: Install system deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libwebkit2gtk-4.1-dev libgtk-3-dev libappindicator3-dev librsvg2-dev patchelf libsoup-3.0-dev libjavascriptcoregtk-4.1-dev
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Build frontend (vite)
+        run: npm run build
+
+      - name: Build backend (cargo)
+        run: cargo build --release
+        working-directory: src-tauri
+
+  # ── Tag: release build + packaging ──────────────────────────────────
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [lint, unit-test]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: "npm" }
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with: { workspaces: "src-tauri" }
+
+      - name: Install system deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libwebkit2gtk-4.1-dev libgtk-3-dev libappindicator3-dev librsvg2-dev patchelf libsoup-3.0-dev libjavascriptcoregtk-4.1-dev
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Build release (Tauri)
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: "MeyatuCode ${{ github.ref_name }}"
+          releaseBody: "See assets to download this release."
+          releaseDraft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          args: --target x86_64-unknown-linux-gnu

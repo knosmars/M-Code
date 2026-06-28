@@ -1,0 +1,98 @@
+.codeEditor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.codeEditorHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.codeEditorTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.codeEditorLang {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.codeEditorStats {
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.codeEditorError,
+.codeEditorLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+.codeEditorError {
+  color: var(--color-error);
+}
+
+.codeEditorBody {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+
+.codeEditorGutter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 12px 0;
+  background: var(--color-bg-elevated);
+  border-right: 1px solid var(--color-border);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.codeEditorLineNumber {
+  padding: 0 12px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.codeEditorContent {
+  flex: 1;
+  margin: 0;
+  padding: 12px 0;
+  overflow: auto;
+  background: var(--color-bg-primary);
+}
+
+.codeEditorCode {
+  display: block;
+  padding: 0 16px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  background: transparent;
+}
+
+/* Override hljs backgrounds for editor-context */
+.codeEditorBody :global(.hljs) {
+  background: transparent;
+  padding: 0;
+}

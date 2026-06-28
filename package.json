@@ -1,0 +1,54 @@
+{
+  "name": "meyatu-code",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Meyatu Code — a desktop AI coding agent (Tauri + React) that reads, edits, and runs code, works over SSH, researches the web, and configures its own automation.",
+  "license": "Apache-2.0",
+  "author": "MEYATU LLC (https://meyatu.net)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knosmars/M-Code.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "test:e2e": "playwright test --project=chromium",
+    "test:visual": "playwright test --project=visual"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.11.0",
+    "highlight.js": "^11.11.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.61.0",
+    "@tauri-apps/cli": "^2.11.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^24.12.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/ui": "^4.1.8",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.59.2",
+    "vite": "^8.0.12",
+    "vitest": "^4.1.8"
+  }
+}

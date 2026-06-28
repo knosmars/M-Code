@@ -1,0 +1,174 @@
+/* toolbar rules — extracted from src/index.css; declarations copied verbatim */
+
+/* line 1129 */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 10px;
+  background: var(--color-bg-primary);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--frost-border-strong);
+  user-select: none;
+}
+
+/* line 1142 */
+.toolbarGroup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  -webkit-app-region: no-drag;
+}
+
+/* line 1149 */
+.toolbarIconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+/* line 1163 */
+.toolbarIconBtn:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+/* line 1168 */
+.toolbarGroup--right {
+  gap: 6px;
+}
+
+/* line 1172 */
+.toolbarWin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+/* line 1681 */
+.toolbarMenu {
+  position: relative;
+  -webkit-app-region: no-drag;
+}
+
+/* line 1686 */
+.toolbarIconBtn--active {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+/* line 1691 */
+.toolbarIconBtn--nav:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+
+/* line 1696 */
+.toolbarIconBtn--nav:disabled:hover {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+/* line 1701 */
+.toolbarDropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 210px;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 5px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  animation: slideDown 110ms ease;
+}
+
+/* line 1718 */
+.toolbarDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* line 1734 */
+.toolbarDropdownItem:hover {
+  background: var(--color-bg-hover);
+}
+
+/* line 1738 */
+.toolbarDropdownItem svg {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* line 1743 */
+.toolbarDropdownShortcut {
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---- Brand logo (center) ---- */
+.toolbarBrand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.3px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---- Window controls (minimize/maximize/close) ---- */
+.toolbarWinControls {
+  display: flex;
+  gap: 0;
+  margin-left: auto;
+  -webkit-app-region: no-drag;
+}
+
+.toolbarWinBtn {
+  width: 38px;
+  height: 32px;
+  border-radius: 0;
+}
+
+.toolbarWinBtn:hover {
+  background: var(--color-bg-hover);
+}
+
+.toolbarWinClose:hover {
+  background: var(--color-error);
+  color: #fff;
+}

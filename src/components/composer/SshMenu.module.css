@@ -1,0 +1,113 @@
+/* line 2652 */
+.popupSsh {
+  min-width: 340px;
+}
+
+/* line 2717 */
+.sshConnect {
+  padding: 8px 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* line 2722 */
+.sshInput {
+  padding: 5px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  min-width: 0;
+}
+
+/* line 2733 */
+.sshInput:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 2px rgba(36, 200, 219, 0.15);
+}
+
+/* line 2737 */
+.sshInput--short {
+  width: 48px;
+  flex-shrink: 0;
+}
+
+/* line 2742 */
+.sshConnectRow {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+/* line 2748 */
+.sshConnectBtn {
+  padding: 5px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-cyan);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* line 2761 */
+.sshConnectBtn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+/* line 2764 */
+.sshConnectBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* line 2768 */
+.sshError {
+  padding: 4px 8px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--color-error);
+  background: rgba(197, 69, 59, 0.06);
+  border-radius: 4px;
+  word-break: break-word;
+}
+
+/* line 2777 */
+.sshAuthToggle {
+  display: flex;
+  gap: 2px;
+  padding: 6px 10px 2px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* line 2783 */
+.sshAuthBtn {
+  flex: 1;
+  padding: 3px 0;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* line 2794 */
+.sshAuthBtn:hover {
+  color: var(--color-text-secondary);
+  background: var(--color-bg-hover);
+}
+
+/* line 2798 */
+.sshAuthBtn--active {
+  color: var(--color-cyan);
+  background: var(--color-cyan-bg);
+  border-color: var(--color-cyan);
+}

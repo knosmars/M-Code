@@ -1,0 +1,77 @@
+.thinking {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+.icon {
+  display: inline-flex;
+  animation: thinkingPulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-family: var(--font-mono);
+}
+
+.toolIcon {
+  font-size: 10px;
+  width: 12px;
+  text-align: center;
+}
+
+.tool--running {
+  background: var(--color-brand-bg);
+  color: var(--color-brand);
+}
+
+.tool--running .toolIcon {
+  animation: toolSpin 0.6s linear infinite;
+}
+
+.tool--done {
+  background: var(--color-accent-muted);
+  color: var(--color-success);
+  opacity: 0.7;
+}
+
+.tool--error {
+  background: rgba(184, 58, 50, 0.1);
+  color: var(--color-error);
+  opacity: 0.7;
+}
+
+@keyframes toolSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes thinkingPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(0.92); }
+}

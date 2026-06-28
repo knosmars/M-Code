@@ -1,0 +1,46 @@
+.slashMenu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: 4px;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.slashMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  transition: background var(--transition-fast);
+}
+
+.slashMenuItem:hover,
+.slashMenuItem--active {
+  background: var(--color-bg-hover);
+}
+
+.slashMenuCommand {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  min-width: 80px;
+  color: var(--color-brand);
+}
+
+.slashMenuDesc {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}

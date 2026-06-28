@@ -1,0 +1,131 @@
+/* ===== Diff Viewer ===== */
+.viewer {
+  margin: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.file {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg-deep);
+}
+
+.fileHeader {
+  padding: 8px 12px;
+  background: var(--color-bg-raised);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fileHeaderMain {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+
+.fileHeaderPaths {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 0.75rem;
+}
+
+.path {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.path--old {
+  color: var(--color-error);
+}
+
+.path--new {
+  color: var(--color-success);
+}
+
+.arrow {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.fileBody {
+  overflow-x: auto;
+}
+
+.hunkHeader {
+  padding: 4px 12px;
+  background: var(--color-bg-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.line {
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.55;
+  min-height: 22px;
+}
+
+.sign {
+  width: 18px;
+  flex-shrink: 0;
+  text-align: center;
+  user-select: none;
+  color: var(--color-text-muted);
+}
+
+.line--add .sign {
+  color: var(--color-success);
+}
+
+.line--del .sign {
+  color: var(--color-error);
+}
+
+.oldNum,
+.newNum {
+  min-width: 42px;
+  flex-shrink: 0;
+  text-align: right;
+  padding: 0 8px;
+  user-select: none;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  border-right: 1px solid var(--color-border);
+}
+
+.text {
+  flex: 1;
+  padding: 0 12px;
+  white-space: pre;
+  overflow-x: auto;
+  color: var(--color-text-primary);
+}
+
+.line--add {
+  background: rgba(26, 122, 58, 0.08);
+}
+
+.line--add .newNum {
+  background: rgba(26, 122, 58, 0.12);
+  opacity: 0.7;
+}
+
+.line--del {
+  background: rgba(184, 58, 50, 0.08);
+}
+
+.line--del .oldNum {
+  background: rgba(184, 58, 50, 0.12);
+  opacity: 0.7;
+}
+
+.line--context {
+  background: transparent;
+}

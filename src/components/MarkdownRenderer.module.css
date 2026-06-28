@@ -1,0 +1,103 @@
+/* Inline code */
+.markdownBody {
+  font-family: var(--font-prose);
+  font-size: var(--font-size-prose);
+  font-weight: var(--font-prose-weight, 300);
+  line-height: var(--line-height-prose);
+}
+
+.inlineCode {
+  padding: 1px 5px;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+}
+
+/* ===== Code Blocks ===== */
+.codeBlock {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0.75em 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg-deep);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  border-left: 2px solid var(--color-brand);
+}
+
+.lang {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-brand);
+}
+
+.copy {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-brand);
+}
+
+.copy--done {
+  color: var(--color-success, #4caf50);
+  border-color: var(--color-success, #4caf50);
+}
+
+.codeBlock pre {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  background: var(--color-bg-deep);
+  line-height: 1.5;
+}
+
+.codeBlock code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-primary);
+}
+
+/* highlight.js theme overrides */
+.codeBlock :global(.hljs-comment),
+.codeBlock :global(.hljs-quote) { color: var(--color-text-muted); }
+
+.codeBlock :global(.hljs-keyword),
+.codeBlock :global(.hljs-selector-tag),
+.codeBlock :global(.hljs-type) { color: var(--color-brand); }
+
+.codeBlock :global(.hljs-string),
+.codeBlock :global(.hljs-addition) { color: var(--color-success); }
+
+.codeBlock :global(.hljs-number),
+.codeBlock :global(.hljs-literal) { color: var(--color-warning); }
+
+.codeBlock :global(.hljs-built_in),
+.codeBlock :global(.hljs-title) { color: var(--color-link); }
+
+.codeBlock :global(.hljs-attr),
+.codeBlock :global(.hljs-attribute) { color: var(--color-warning); }
+
+.codeBlock :global(.hljs-meta) { color: var(--color-text-muted); }

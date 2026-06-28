@@ -1,0 +1,74 @@
+.dashboard {
+  padding: 16px;
+  background: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.ratio {
+  margin-top: 12px;
+}
+
+.ratioBar {
+  height: 6px;
+  background: var(--color-bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.ratioPrompt {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-brand) 0%, var(--color-brand-soft) 100%);
+  transition: width 0.3s ease;
+}
+
+.ratioLabel {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}

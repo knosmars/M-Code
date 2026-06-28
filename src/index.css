@@ -1,0 +1,169 @@
+/* ===== MeyatuCode — Pure White Glass Morphism ===== */
+@font-face {
+  font-family: 'RoundProse';
+  src: url('./assets/fonts/ResourceHanRoundedSC-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RoundSans';
+  src: url('./assets/fonts/Nunito-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg-deep:      #fcfdff;
+  --color-bg-elevated:  #FFFFFF;
+  --color-bg-primary:   #fcfdff;
+  --color-bg-surface:   #F8F9FB;
+  --color-bg-raised:    #FFFFFF;
+  --color-bg-hover:     #F3F5F8;
+  --color-bg-active:    #EDF0F5;
+  --color-bg-user:      #F8F9FB;
+  --color-bg-input:     #FFFFFF;
+  --color-bg-tool:      #F8F9FB;
+  --color-bg-code:      #F8F9FB;
+  --color-bg-pill:      #F3F5F8;
+
+  --color-text-primary:   #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted:     #9ca3af;
+
+  --color-brand:        #FFC131;
+  --color-brand-soft:   #FFE082;
+  --color-brand-bg:     rgba(255, 193, 49, 0.08);
+  --color-brand-text:   #9A7209;
+  --color-cyan:         #24C8DB;
+  --color-cyan-soft:    #80DDE8;
+  --color-cyan-bg:      rgba(36, 200, 219, 0.08);
+  --color-accent:       #3b82f6;
+  --color-accent-muted: rgba(59, 130, 246, 0.08);
+  --color-accent-glow:  rgba(59, 130, 246, 0.12);
+  --color-link:         #2563eb;
+
+  --color-border:        #E5E7EB;
+  --color-border-strong: #D1D5DB;
+  --color-border-focus:  #93C5FD;
+  --color-border-light:  #F3F4F6;
+  --color-selection: #DBEAFE;
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error:   #DC2626;
+  --color-merged:  #7C3AED;
+
+  --font-mono: 'JetBrains Mono','Fira Code','Cascadia Code','Consolas',monospace;
+  --font-sans: 'RoundSans','Nunito','Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif;
+  --font-prose: 'RoundProse','Resource Han Rounded SC','YouYuan','幼圆','Noto Serif SC',serif;
+  --font-prose-weight: 300;
+  --font-size-xs:0.6875rem; --font-size-sm:0.75rem; --font-size-base:0.8125rem;
+  --font-size-lg:0.9375rem; --font-size-xl:1.0625rem; --font-size-2xl:1.375rem;
+  --font-size-prose: 0.9375rem; --line-height-prose: 1.8;
+
+  --radius-sm:10px; --radius-md:14px; --radius-lg:18px; --radius-xl:24px; --radius-pill:999px;
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.03);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.03);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.05),0 1px 4px rgba(0,0,0,.03);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.07),0 2px 8px rgba(0,0,0,.04);
+  --shadow-glow: 0 0 24px rgba(135,206,255,.15);
+
+  --transition-fast: 100ms cubic-bezier(.16,1,.3,1);
+  --transition-base: 180ms cubic-bezier(.16,1,.3,1);
+  --transition-slow: 350ms cubic-bezier(.23,1,.32,1);
+
+  /* Glass morphism */
+  --glass-bg: rgba(255,255,255,.82);
+  --glass-bg-strong: rgba(255,255,255,.92);
+  --glass-bg-elevated: rgba(255,255,255,.86);
+  --glass-bg-surface: rgba(250,253,255,.78);
+  --glass-bg-deep: rgba(252,253,255,.68);
+  --glass-bg-hover: rgba(255,255,255,.92);
+  --glass-bg-active: rgba(240,248,255,.90);
+  --glass-bg-user: rgba(250,253,255,.80);
+  --glass-bg-input: rgba(255,255,255,.86);
+  --glass-bg-raised: rgba(255,255,255,.94);
+  --glass-bg-overlay: rgba(252,253,255,.60);
+
+  --glass-border: rgba(200,230,255,.45);
+  --glass-border-strong: rgba(180,215,255,.60);
+  --glass-border-subtle: rgba(200,230,255,.28);
+  --frost-border: rgba(0,0,0,.05);
+  --frost-border-strong: rgba(0,0,0,.08);
+
+  --shadow-flat: 0 1px 2px rgba(0,0,0,.03),var(--shadow-emboss);
+  --shadow-card: 0 2px 12px rgba(0,0,0,.05),0 1px 3px rgba(0,0,0,.04),0 0 0 .5px rgba(0,0,0,.02),var(--iridescent-glow),var(--shadow-emboss);
+  --shadow-float: 0 12px 40px rgba(0,0,0,.10),0 4px 12px rgba(0,0,0,.06),0 0 0 .5px rgba(0,0,0,.03),var(--iridescent-glow),var(--shadow-emboss);
+  --shadow-emboss: inset 0 1px 2px rgba(255,255,255,.60);
+  --shadow-inset: inset 0 1px 4px rgba(0,0,0,.08);
+
+  --iridescent-glow: 0 0 28px rgba(135,206,255,.14);
+  --brand-glow: 0 0 28px rgba(255,193,49,.20);
+  --cyan-glow: 0 0 28px rgba(36,200,219,.20);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+*::before,*::after{box-sizing:border-box}
+
+html{height:100%;background:transparent}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-deep);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  background: transparent;
+}
+
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--color-border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--color-text-muted)}
+*{scrollbar-width:thin;scrollbar-color:var(--color-border) transparent}
+
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+@keyframes messageAppear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.brand-icon--animated{animation:thinkingSpin 1.2s linear infinite;transform-origin:center center}
+@keyframes thinkingSpin{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.25);filter:drop-shadow(0 0 12px rgba(255,193,49,.9)) drop-shadow(0 0 12px rgba(36,200,219,.9))}100%{transform:rotate(360deg) scale(1)}}
+
+@keyframes pulse-fade{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes popup-appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@keyframes composer__popup-status-dot-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes terminal-blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes overlayAppear{from{opacity:0}to{opacity:1}}
+@keyframes dialogSlideIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+@keyframes fluidBg{0%{background-position:0% 50%}25%{background-position:100% 0%}50%{background-position:100% 100%}75%{background-position:0% 100%}100%{background-position:0% 50%}}
+@keyframes cardSweep{0%{transform:translateX(-100%) skewX(-15deg)}100%{transform:translateX(250%) skewX(-15deg)}}
+@keyframes breathGlow{0%,100%{box-shadow:var(--shadow-card)}50%{box-shadow:var(--shadow-card),var(--iridescent-glow)}}
+
+.streaming-pending {
+  font-family: var(--font-prose);
+  font-size: var(--font-size-prose);
+  line-height: var(--line-height-prose);
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  opacity: .65;
+}
+.streaming-pending:empty{display:none}
