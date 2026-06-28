@@ -1,5 +1,8 @@
 # Meyatu Code
 
+[![Release](https://img.shields.io/github/v/release/knosmars/M-Code?sort=semver)](https://github.com/knosmars/M-Code/releases)
+[![License](https://img.shields.io/github/license/knosmars/M-Code)](./LICENSE)
+
 桌面端自主 AI 编程智能体 —— 基于 Tauri 2 + React 构建。读写、运行代码，跨 SSH 操作远程服务器，研究网页，并能给自己配置自动化。
 
 ![Meyatu Code](https://github.com/user-attachments/assets/0f4843cf-340a-4626-a976-63ae105aa139)
