@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 安全漏洞报告
+    url: https://github.com/knosmars/M-Code/security/advisories/new
+    about: 安全问题请走私密渠道，请勿开公开 Issue（详见 SECURITY.md）。
+  - name: 🔑 获取 API Key（Meyatu 网关）
+    url: https://api.meyatu.io
+    about: 申请 Meyatu API key。
+  - name: 🌐 官网
+    url: https://meyatu.net
+    about: MEYATU LLC 官方网站。
