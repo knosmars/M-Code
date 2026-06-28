@@ -7,6 +7,16 @@
 
 ![Meyatu Code](https://github.com/user-attachments/assets/0f4843cf-340a-4626-a976-63ae105aa139)
 
+<p align="center">
+  <a href="https://github.com/knosmars/M-Code/releases/latest"><img src="https://img.shields.io/badge/下载-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows"></a>
+  &nbsp;
+  <a href="https://github.com/knosmars/M-Code/releases/latest"><img src="https://img.shields.io/badge/下载-macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS"></a>
+  &nbsp;
+  <a href="https://github.com/knosmars/M-Code/releases/latest"><img src="https://img.shields.io/badge/下载-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download for Linux"></a>
+</p>
+
+<p align="center"><sub>跳转到最新 <a href="https://github.com/knosmars/M-Code/releases/latest">Release</a>，按平台选安装包。</sub></p>
+
 ## 安装
 
 到 [Releases](https://github.com/knosmars/M-Code/releases) 下载对应平台的安装包：
